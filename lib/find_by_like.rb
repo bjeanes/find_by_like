@@ -3,7 +3,7 @@ module FindByLike
     
     # DIRTY DIRTY DIRTY BOY
     allowed_types = [:string, :text]
-    keys = base.class_eval "columns_hash.reject { |k,v| !allowed_types.include?(columns_hash[k].type) }.keys"
+    keys = base.columns_hash.reject { |k,v| !allowed_types.include?(base.columns_hash[k].type) }.keys
     keys.each do |field|
       base.class_eval %^
         def self.find_by_#{field}_like(*args)

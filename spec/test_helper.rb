@@ -28,8 +28,8 @@ class TestHelper
       ActiveRecord::Base.connection.execute table
     }
     1.upto(50) do |i|
-      Account.create!(:subdomain => "thing#{i}")
-      Account.create!(:subdomain => "#{i}thing")
+      Account.create!(:subdomain => "thing#{i}",:name => "name#{i}")
+      Account.create!(:subdomain => "#{i}thing",:name => "#{i}name")
     end
 
   end
